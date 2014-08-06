@@ -1,0 +1,45 @@
+﻿/**************** Tooltip plug-in *********************/
+div.tooltip {
+        padding: 1em;
+        position: absolute;
+        min-width: 10em;
+        min-height: 5em;
+        background: black;
+        opacity: 0.8;
+        border-radius: 7px;
+        color: white;
+}
+
+div.tooltip-pointer {
+        width: 0px;
+        height: 0px;
+        display: block;
+        border: 7px transparent solid;
+        position: absolute;
+}
+
+div.tooltip-pointer.left {
+        border-left-color: black;
+        top: 7px;       
+        right: -14px;
+}
+
+div.tooltip-pointer.right {
+        border-right-color: black;
+        top: 7px;
+        left: -14px;
+}
+
+div.tooltip-pointer.top {
+        border-top-color: black;
+        bottom: -14px;
+        left: calc(50% - 3.5px);
+}
+
+div.tooltip-pointer.bottom {
+        border-bottom-color: black;
+        top: -14px;
+        left: calc(50% - 3.5px);
+}
+
+

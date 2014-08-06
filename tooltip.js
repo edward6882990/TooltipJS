@@ -1,5 +1,52 @@
 ﻿/********************************************/
 /* Tooltip plugin - by Edward Tam, 31st July, 2014
+ *
+ * Requires: jQuery 1.7+
+ *
+ * How to use:
+ *
+ * 1. In your html file, include all the necessary requirements:
+ *
+ *			 <script type="text/javascript" src="/path/to/jquery.js"></script>
+ *			<script type="text/javascript" src="/path/to/tooltip.js"></script>
+ *			<link rel="stylesheet" href="/path/to/tooltip.css" />
+ *
+ * 2. In the body of your html, create a 'div' for the tooltip:
+ *
+ *			<div id="tooltip">Hello World</div>
+ *			<div id="content">
+ *			  <span>Content goes here</span>
+ *			</div>
+ *
+ * 3. Call the tooltip in TooltipJS. You need to parse in 2 manditory parameters:
+ *			- el: the selector of the element for your tooltip
+ *			- target: the target element that you want to show the tooltip when hovering
+ *
+ *			Example:
+ *
+ *			this.tooltip = new Tooltip({
+ *			  el     : 'div#tooltip',
+ *			  target : 'div#content'
+ *			});
+ *
+ *			
+ * Feel free to extend the widget by doing the follow:
+ *
+ *			 AdvanceTooltip.prototype = new Tooltip();
+ *
+ * To overwrite a function in Tooltip, just replace it in the constructor:
+ * 
+ *			function AdvanceTooltip (option){
+ *			  this.render = function (){
+ *			    if (this.isHover) {
+ *			      this.show();
+ *			    else 
+ *			      this.hide();
+ *			  };
+ *			  this.render();
+ *			}
+ * 
+ *
 /********************************************/
 function Tooltip(options){
         this.parseOptions(options);
@@ -83,8 +130,8 @@ Tooltip.prototype.setTargetEl = function(el){
 /* Function    : show()
 /*
 /* Parameters  : hover_target - jQuery object $(): the target element.
-/*                                                       position - 'top', 'left', 'bottom' or 'right': indicates the 
-/*                                                                                                      position relative to the target element.
+/*               position - 'top', 'left', 'bottom' or 'right': indicates the 
+/*                          position relative to the target element.
 /*
 /* Description : show the tooltip, calculate position relative to hover_target
 /***************************************************************************/
