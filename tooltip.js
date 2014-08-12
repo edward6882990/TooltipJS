@@ -81,6 +81,7 @@ Tooltip.prototype.parseOptions = function(options){
         for (key in options){
                 if (key == 'el') {
                         this.$el = this.$(options[key]);
+												this.$el.addClass('tooltip').hide();
                 }
                 if (key == 'target') {
                         this.setTargetEl(this.$(options[key]));
@@ -175,7 +176,7 @@ Tooltip.prototype.show = function (){
                                 self.$el.find('.tooltip-pointer').removeClass('top left right').addClass('bottom');
                         }
 
-                        self.$el.show('fade', 250).offset(tooltip_offset).toggleClass('opened');        
+                        self.$el.fadeIn(250).offset(tooltip_offset).toggleClass('opened');        
                 }
         }, this.hoverDuration);
 
@@ -189,7 +190,7 @@ Tooltip.prototype.show = function (){
 /*****************************************************************************/
 Tooltip.prototype.hide = function (){
         clearTimeout(this.tooltip_timer);
-        this.$el.hide('fade', 250).removeClass('opened');
+        this.$el.fadeOut(250).removeClass('opened');
         return this;
 }
 
